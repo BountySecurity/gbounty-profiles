@@ -1,0 +1,118 @@
+[
+  {
+    "profile_name": "XSS_Script",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,\u0027-TEST1337()-\u0027"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "entire_body",
+          "param_body",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,Not in Headers,(?\u003c\u003d\u003cscript[^\u003e]*\u003e)(.*?-TEST1337\\(\\)-.*?)(?\u003d\u003c\\/script\u003e)",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "XSS_Script_reflected",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      },
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,\u0027-alert(1)-\u0027",
+          "true,\u0027-prompt(1)-\u0027",
+          "true,\u0027-confirm(1)-\u0027"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "entire_body",
+          "param_body",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,(?\u003c\u003d\u003cscript[^\u003e]*\u003e)(.*?-alert\\(1\\)-.*?)(?\u003d\u003c\\/script\u003e)",
+          "true,OR,Regex,,(?\u003c\u003d\u003cscript[^\u003e]*\u003e)(.*?-prompt\\(1\\)-.*?)(?\u003d\u003c\\/script\u003e)",
+          "true,OR,Regex,,(?\u003c\u003d\u003cscript[^\u003e]*\u003e)(.*?-confirm\\(1\\)-.*?)(?\u003d\u003c\\/script\u003e)"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "XSS_Script",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "XSS",
+      "All",
+      "Fase 2"
+    ]
+  }
+]
