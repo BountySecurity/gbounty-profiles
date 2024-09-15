@@ -1,0 +1,54 @@
+[
+  {
+    "profile_name": "Wordpress_directory_listing",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,/wp-admin/",
+          "true,/wp-content/",
+          "true,/wp-includes/",
+          "true,/wp-content/uploads/"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "single_path_discovery",
+          "user_provided"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,Not in Headers,Index of /wp"
+        ],
+        "redir_type": "always",
+        "max_redir": 6,
+        "show_alert": "always",
+        "issue_name": "Wordpress_directory_listing",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "WordPress"
+    ]
+  }
+]

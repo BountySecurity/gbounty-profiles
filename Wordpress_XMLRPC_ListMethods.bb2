@@ -1,0 +1,46 @@
+[
+  {
+    "profile_name": "Wordpress_XMLRPC_ListMethods",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "raw_request",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "POST /xmlrpc.php HTTP/1.1\nHost: {CURRENT_HOST}\nContent-Length: 127\n\n\u003c?xml version\u003d\"1.0\" encoding\u003d\"utf-8\"?\u003e\u003cmethodCall\u003e\u003cmethodName\u003esystem.listMethods\u003c/methodName\u003e\u003cparams\u003e\u003c/params\u003e\u003c/methodCall\u003e",
+        "payloads": [],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,methodResponse"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "Wordpress_XMLRPC_ListMethods",
+        "issue_severity": "Low",
+        "issue_confidence": "Firm",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "WordPress",
+      "All"
+    ]
+  }
+]
