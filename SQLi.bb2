@@ -1,0 +1,85 @@
+[
+  {
+    "profile_name": "SQLi",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,\u0027",
+          "true,\"",
+          "true,`",
+          "true,\\"
+        ],
+        "payloads_file": "",
+        "payload_position": "append",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "user_agent",
+          "entire_body",
+          "param_body",
+          "param_cookie",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "referer",
+          "origin",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,Microsoft OLE DB Provider for ODBC Drivers error",
+          "true,OR,Simple String,,You have an error in your SQL syntax",
+          "true,OR,Simple String,,ORA-00933: SQL command not properly ended",
+          "true,OR,Simple String,,Microsoft SQL Native Client error",
+          "true,OR,Simple String,,Query failed: ERROR: syntax error at or near",
+          "true,OR,Simple String,,You have an error in your SQL syntax",
+          "true,OR,Simple String,,MySQL Error: 1064",
+          "true,OR,Simple String,,mysql error with query",
+          "true,OR,Simple String,,SQL syntax error",
+          "true,OR,Simple String,,PostgreSQL query failed: ERROR: parser: parse error",
+          "true,OR,Simple String,,Warning: mysql_fetch_array",
+          "true,OR,Simple String,,Warning: mysql_num_rows",
+          "true,OR,Simple String,,Warning: mysql_query",
+          "true,OR,Simple String,,Warning: mysql_fetch_assoc",
+          "true,OR,Simple String,,Warning: mysql_result"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "SQLi",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "SQLi",
+      "All",
+      "Fase 2"
+    ]
+  }
+]
