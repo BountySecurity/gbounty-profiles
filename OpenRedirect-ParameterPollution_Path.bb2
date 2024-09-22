@@ -1,0 +1,61 @@
+[
+  {
+    "profile_name": "OpenRedirect-ParameterPollution_Path",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,/redirect/{URL}",
+          "true,/cgi-bin/redirect.cgi?{URL}",
+          "true,/out/{URL}",
+          "true,/out?{URL}",
+          "true,/login?to\u003d{URL}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "single_path_discovery",
+          "user_provided"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,http-equiv\u003d\"refresh\" content\u003d\".*url\u003d.https:\\/\\/bountysecurity\\.ai",
+          "true,OR,Regex,,location\\.replace\\(.https:\\/\\/bountysecurity\\.ai",
+          "true,OR,Regex,,Location:\\shttps:\\/\\/bountysecurity\\.ai",
+          "true,OR,Regex,,Location:\\shttps:bountysecurity\\.ai",
+          "true,OR,Regex,,http-equiv\u003d\"refresh\" content\u003d\".*url\u003d.https:bountysecurity\\.ai",
+          "true,OR,Regex,,location\\.replace\\(.https:bountysecurity\\.ai"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "OpenRedirect-ParameterPollution_Path",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "Open Redirect",
+      "All",
+      "Fase 2"
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "profile_name": "OpenRedirect-ParameterPollution",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026next\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026url\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026target\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026rurl\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026dest\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026destination\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redir\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redirect_uri\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redirect\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026view\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026image_url\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026go\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026return\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026returnTo\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026return_to\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026checkout_url\u003d{URL}",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026continue\u003d{URL}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_body",
+          "user_provided",
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,http-equiv\u003d\"refresh\" content\u003d\".*url\u003d.https:\\/\\/bountysecurity\\.ai",
+          "true,OR,Regex,,location\\.replace\\(.https:\\/\\/bountysecurity\\.ai",
+          "true,OR,Regex,,Location:\\shttps:\\/\\/bountysecurity\\.ai",
+          "true,OR,Regex,,Location:\\shttps:bountysecurity\\.ai",
+          "true,OR,Regex,,http-equiv\u003d\"refresh\" content\u003d\".*url\u003d.https:bountysecurity\\.ai",
+          "true,OR,Regex,,location\\.replace\\(.https:bountysecurity\\.ai"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "OpenRedirect-ParameterPollution",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "Open Redirect",
+      "Fase 2"
+    ]
+  }
+]
