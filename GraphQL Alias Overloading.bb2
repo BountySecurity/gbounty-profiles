@@ -1,0 +1,54 @@
+[
+  {
+    "profile_name": "GraphQL Alias Overloading",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"query{ alias1:__typename \\nalias2:__typename \\nalias3:__typename \\nalias4:__typename\\n }\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,alias1",
+          "true,AND,Simple String,,alias2",
+          "true,AND,Simple String,,alias3",
+          "true,AND,Content Type,,application/json"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 4,
+        "show_alert": "always",
+        "issue_name": "GraphQL Alias Overloading",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "GraphQL"
+    ]
+  }
+]

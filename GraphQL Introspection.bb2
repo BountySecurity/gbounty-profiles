@@ -1,0 +1,54 @@
+[
+  {
+    "profile_name": "GraphQL Introspection",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"\\n    query IntrospectionQuery {\\r\\n      __schema {\\r\\n        queryType { name }\\r\\n        mutationType { name }\\r\\n        subscriptionType { name }\\r\\n        types {\\r\\n          ...FullType\\r\\n        }\\r\\n        directives {\\r\\n          name\\r\\n          description\\r\\n          locations\\r\\n          args {\\r\\n            ...InputValue\\r\\n          }\\r\\n        }\\r\\n      }\\r\\n    }\\r\\n\\r\\n    fragment FullType on __Type {\\r\\n      kind\\r\\n      name\\r\\n      description\\r\\n      fields(includeDeprecated: true) {\\r\\n        name\\r\\n        description\\r\\n        args {\\r\\n          ...InputValue\\r\\n        }\\r\\n        type {\\r\\n          ...TypeRef\\r\\n        }\\r\\n        isDeprecated\\r\\n        deprecationReason\\r\\n      }\\r\\n      inputFields {\\r\\n        ...InputValue\\r\\n      }\\r\\n      interfaces {\\r\\n        ...TypeRef\\r\\n      }\\r\\n      enumValues(includeDeprecated: true) {\\r\\n        name\\r\\n        description\\r\\n        isDeprecated\\r\\n        deprecationReason\\r\\n      }\\r\\n      possibleTypes {\\r\\n        ...TypeRef\\r\\n      }\\r\\n    }\\r\\n\\r\\n    fragment InputValue on __InputValue {\\r\\n      name\\r\\n      description\\r\\n      type { ...TypeRef }\\r\\n      defaultValue\\r\\n    }\\r\\n\\r\\n    fragment TypeRef on __Type {\\r\\n      kind\\r\\n      name\\r\\n      ofType {\\r\\n        kind\\r\\n        name\\r\\n        ofType {\\r\\n          kind\\r\\n          name\\r\\n          ofType {\\r\\n            kind\\r\\n            name\\r\\n            ofType {\\r\\n              kind\\r\\n              name\\r\\n              ofType {\\r\\n                kind\\r\\n                name\\r\\n                ofType {\\r\\n                  kind\\r\\n                  name\\r\\n                  ofType {\\r\\n                    kind\\r\\n                    name\\r\\n                  }\\r\\n                }\\r\\n              }\\r\\n            }\\r\\n          }\\r\\n        }\\r\\n      }\\r\\n    }\\r\\n  \",\"variables\":null}",
+          "true,[{\"query\":\"\\n    query IntrospectionQuery {\\r\\n      __schema {\\r\\n        queryType { name }\\r\\n        mutationType { name }\\r\\n        subscriptionType { name }\\r\\n        types {\\r\\n          ...FullType\\r\\n        }\\r\\n        directives {\\r\\n          name\\r\\n          description\\r\\n          locations\\r\\n          args {\\r\\n            ...InputValue\\r\\n          }\\r\\n        }\\r\\n      }\\r\\n    }\\r\\n\\r\\n    fragment FullType on __Type {\\r\\n      kind\\r\\n      name\\r\\n      description\\r\\n      fields(includeDeprecated: true) {\\r\\n        name\\r\\n        description\\r\\n        args {\\r\\n          ...InputValue\\r\\n        }\\r\\n        type {\\r\\n          ...TypeRef\\r\\n        }\\r\\n        isDeprecated\\r\\n        deprecationReason\\r\\n      }\\r\\n      inputFields {\\r\\n        ...InputValue\\r\\n      }\\r\\n      interfaces {\\r\\n        ...TypeRef\\r\\n      }\\r\\n      enumValues(includeDeprecated: true) {\\r\\n        name\\r\\n        description\\r\\n        isDeprecated\\r\\n        deprecationReason\\r\\n      }\\r\\n      possibleTypes {\\r\\n        ...TypeRef\\r\\n      }\\r\\n    }\\r\\n\\r\\n    fragment InputValue on __InputValue {\\r\\n      name\\r\\n      description\\r\\n      type { ...TypeRef }\\r\\n      defaultValue\\r\\n    }\\r\\n\\r\\n    fragment TypeRef on __Type {\\r\\n      kind\\r\\n      name\\r\\n      ofType {\\r\\n        kind\\r\\n        name\\r\\n        ofType {\\r\\n          kind\\r\\n          name\\r\\n          ofType {\\r\\n            kind\\r\\n            name\\r\\n            ofType {\\r\\n              kind\\r\\n              name\\r\\n              ofType {\\r\\n                kind\\r\\n                name\\r\\n                ofType {\\r\\n                  kind\\r\\n                  name\\r\\n                  ofType {\\r\\n                    kind\\r\\n                    name\\r\\n                  }\\r\\n                }\\r\\n              }\\r\\n            }\\r\\n          }\\r\\n        }\\r\\n      }\\r\\n    }\\r\\n  \",\"variables\":null}]",
+          "true,{\"query\":\"query introspection{__schema{types{name}}}\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,{\"query\":{\"__schema\":{",
+          "true,OR,Simple String,,\"data\":{\"__schema\":{"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "GraphQL Introspection",
+        "issue_severity": "Low",
+        "issue_confidence": "Certain",
+        "issue_detail": "References:\u003c/br\u003e\n* https://the-bilal-rizwan.medium.com/graphql-common-vulnerabilities-how-to-exploit-them-464f9fdce696\n\u003c/br\u003e* https://apis.guru/graphql-voyager/",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "GraphQL",
+      "All"
+    ]
+  }
+]
