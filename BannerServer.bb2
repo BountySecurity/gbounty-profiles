@@ -1,0 +1,25 @@
+[
+  {
+    "profile_name": "BannerServer",
+    "enabled": true,
+    "scanner": "passive_response",
+    "author": "@bountysecurity",
+    "grepsFile": "",
+    "grep": [
+      "true,,Simple String,,Microsoft-HTTPAPI"
+    ],
+    "show_alert": "one",
+    "redir_type": "",
+    "max_redir": 0,
+    "issue_name": "BannerServer",
+    "issue_severity": "Information",
+    "issue_confidence": "Certain",
+    "issue_detail": "",
+    "remediation_detail": "",
+    "issue_background": "",
+    "remediation_background": "",
+    "Tags": [
+      "All"
+    ]
+  }
+]

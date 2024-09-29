@@ -1,0 +1,52 @@
+[
+  {
+    "profile_name": "Open Firebase Database",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,/.json"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "single_path_discovery",
+          "user_provided"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,Not in Headers,{\"",
+          "true,AND,Content Type,,application/json",
+          "true,AND,Status Code,,200"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "Open Firebase Database",
+        "issue_severity": "High",
+        "issue_confidence": "Tentative",
+        "issue_detail": "Open Firebase Database\n\n\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All"
+    ]
+  }
+]

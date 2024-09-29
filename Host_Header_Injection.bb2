@@ -1,0 +1,51 @@
+[
+  {
+    "profile_name": "Host_Header_Injection",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{BH}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "host"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Blind Host,,"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "Host_Header_Injection",
+        "issue_severity": "High",
+        "issue_confidence": "Firm",
+        "issue_detail": "References:\u003cbr/\u003e\u003cbr/\u003e\n* https://medium.com/@swapmaurya20/password-reset-poisoning-leading-to-account-takeover-f178f5f1de87\u003cbr/\u003e\n* https://hackerone.com/reports/698416\n\n\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "Fase 1"
+    ]
+  }
+]

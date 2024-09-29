@@ -1,0 +1,74 @@
+[
+  {
+    "profile_name": "SSRF_URLScheme",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,dict://{BH}",
+          "true,sftp://{BH}",
+          "true,ldap://{BH}",
+          "true,gopher://{BH}",
+          "true,file://{BH}",
+          "true,tftp://{BH}",
+          "true,netdoc://{BH}",
+          "true,https://{BH}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "user_agent",
+          "entire_body",
+          "param_body",
+          "param_cookie",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "referer",
+          "origin",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Blind Host,,"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "SSRF_URLScheme",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "* https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery\n\n\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "Fase 2"
+    ]
+  }
+]

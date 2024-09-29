@@ -1,0 +1,70 @@
+[
+  {
+    "profile_name": "X-Headers-BlindHost",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{BH}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "new_headers"
+        ],
+        "header_value": true,
+        "new_headers": [
+          "X-Forwarded-For",
+          "X-Host",
+          "X-Forwarded-Server",
+          "X-Forwarded-Scheme",
+          "X-Original-URL",
+          "X-Rewrite-URL",
+          "Forwarded",
+          "Origin",
+          "Referer",
+          "X-Forwarded-Host",
+          "X-Forwarded-Proto",
+          "X-ProxyUser-Ip",
+          "X-Wap-Profile",
+          "Client-IP",
+          "True-Client-IP",
+          "Cluster-Client-IP",
+          "X-Custom-IP-Authorization"
+        ],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Blind Host,,"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "X-Headers-BlindHost",
+        "issue_severity": "Medium",
+        "issue_confidence": "Firm",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "X-Headers-BlindHost",
+      "All",
+      "Fase 1"
+    ]
+  }
+]

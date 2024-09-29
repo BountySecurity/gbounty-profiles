@@ -1,0 +1,62 @@
+[
+  {
+    "profile_name": "CRLF Injection",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,%0D%0ASet-Cookie:%20mycookie\u003dmyvalue"
+        ],
+        "payloads_file": "",
+        "payload_position": "append",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "entire_body",
+          "param_body",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,Only in Headers,Set-Cookie:\\smycookie\u003dmyvalue"
+        ],
+        "redir_type": "always",
+        "max_redir": 3,
+        "show_alert": "always",
+        "issue_name": "CRLF Injection",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "Fase 2"
+    ]
+  }
+]

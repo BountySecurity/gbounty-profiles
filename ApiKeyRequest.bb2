@@ -1,0 +1,27 @@
+[
+  {
+    "profile_name": "ApiKeyRequest",
+    "enabled": true,
+    "scanner": "passive_request",
+    "author": "@bountysecurity",
+    "match_type": "",
+    "grepsFile": "",
+    "Grep": [
+      "true,,Simple String,All parameters name,,apikey",
+      "true,OR,Simple String,All parameters name,,api_key",
+      "true,OR,Simple String,All parameters name,,api-key",
+      "true,OR,Simple String,All parameters name,,api.key"
+    ],
+    "not_show_issue": false,
+    "issue_name": "ApiKeyRequest",
+    "issue_severity": "Information",
+    "issue_confidence": "Firm",
+    "issue_detail": "",
+    "remediation_detail": "",
+    "issue_background": "",
+    "remediation_background": "",
+    "Tags": [
+      "All"
+    ]
+  }
+]

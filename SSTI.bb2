@@ -1,0 +1,76 @@
+[
+  {
+    "profile_name": "SSTI",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,${7948+7948}1337",
+          "true,#{7948+7948}1337",
+          "true,{{7949*2}}1337",
+          "true,#{7948*2}1337",
+          "true,${7948*2}1337",
+          "true,@(7948+7948)1337",
+          "true,{{7948+7948}}1337",
+          "true,@(7948*2)1337",
+          "true,\u003c%\u003d7948*2%\u003e1337"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "user_agent",
+          "entire_body",
+          "param_body",
+          "param_cookie",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "referer",
+          "origin",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,Not in Headers,158961337"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "SSTI",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "* https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection\n\n\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "SSTI",
+      "All",
+      "Fase 2"
+    ]
+  }
+]
