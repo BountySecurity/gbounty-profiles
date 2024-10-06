@@ -1,0 +1,21 @@
+All
+Blind XSS
+Blind XXE
+CORS
+CVEs
+Fuzzing Files
+GraphQL
+Open Redirect
+Path_Traversal
+RCE
+SQLi
+SQLi_BlindHost
+SQLi_ContentLength
+SQLi_StatusCode
+SQLi_TimeBased
+SSRF
+SSTI
+WordPress
+X-Headers-BlindHost
+XSS
+XXE
