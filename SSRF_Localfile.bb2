@@ -11,9 +11,9 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,file:///{FILE}",
-          "true,file://\\/\\/{FILE}",
-          "true,file://{FILE}"
+          "true,file:///etc/passwd",
+          "true,file://\\/\\/etc/passwd",
+          "true,file://etc/passwd"
         ],
         "payloads_file": "",
         "payload_position": "replace",
@@ -63,8 +63,7 @@
     ],
     "Tags": [
       "SSRF",
-      "All",
-      "Fase 2"
+      "All"
     ]
   }
 ]

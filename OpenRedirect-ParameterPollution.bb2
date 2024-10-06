@@ -11,23 +11,23 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026next\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026url\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026target\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026rurl\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026dest\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026destination\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redir\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redirect_uri\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redirect\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026view\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026image_url\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026go\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026return\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026returnTo\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026return_to\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026checkout_url\u003d{URL}",
-          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026continue\u003d{URL}"
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026next\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026url\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026target\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026rurl\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026dest\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026destination\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redir\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redirect_uri\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026redirect\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026view\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026image_url\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026go\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026return\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026returnTo\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026return_to\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026checkout_url\u003dhttps://bountysecurity.ai",
+          "true,{CURRENT_INSERTION_POINT_VALUE}\u0026continue\u003dhttps://bountysecurity.ai"
         ],
         "payloads_file": "",
         "payload_position": "replace",
@@ -67,8 +67,7 @@
     ],
     "Tags": [
       "All",
-      "Open Redirect",
-      "Fase 2"
+      "Open Redirect"
     ]
   }
 ]

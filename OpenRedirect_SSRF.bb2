@@ -184,8 +184,7 @@
     "Tags": [
       "SSRF",
       "Open Redirect",
-      "All",
-      "Fase 2"
+      "All"
     ]
   }
 ]

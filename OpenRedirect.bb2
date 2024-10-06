@@ -11,15 +11,15 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,https://{OPENREDIR_HOST}",
-          "true,//{OPENREDIR_HOST}",
-          "true,http:{OPENREDIR_HOST}",
-          "true,///{OPENREDIR_HOST}",
-          "true,\\/\\/{OPENREDIR_HOST}",
+          "true,https://bountysecurity.ai",
+          "true,//bountysecurity.ai",
+          "true,http:bountysecurity.ai",
+          "true,///bountysecurity.ai",
+          "true,\\/\\/bountysecurity.ai",
           "true,//burpbounty%E3%80%82net",
-          "true,https://{OPENREDIR_HOST}\\\\@{CURRENT_HOST}/",
-          "true,{CURRENT_PROTOCOL}://{CURRENT_HOST}.{OPENREDIR_HOST}",
-          "true,{CURRENT_PROTOCOL}://{CURRENT_HOST}@{OPENREDIR_HOST}"
+          "true,https://bountysecurity.ai\\\\@{CURRENT_HOST}/",
+          "true,{CURRENT_PROTOCOL}://{CURRENT_HOST}.bountysecurity.ai",
+          "true,{CURRENT_PROTOCOL}://{CURRENT_HOST}@bountysecurity.ai"
         ],
         "payloads_file": "",
         "payload_position": "replace",
@@ -88,8 +88,7 @@
     ],
     "Tags": [
       "Open Redirect",
-      "All",
-      "Fase 2"
+      "All"
     ]
   }
 ]
