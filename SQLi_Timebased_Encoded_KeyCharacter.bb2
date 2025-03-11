@@ -1,6 +1,6 @@
 [
   {
-    "profile_name": "SQLi_Timebased",
+    "profile_name": "SQLi_Timebased_Encoded_KeyCharacter",
     "enabled": true,
     "scanner": "active",
     "author": "@bountysecurity",
@@ -134,7 +134,9 @@
         "header_value": false,
         "new_headers": [],
         "match_replace": [],
-        "encoder": [],
+        "encoder": [
+          "URL-encode key characters"
+        ],
         "url_encode": false,
         "chars_to_url_encode": "",
         "greps_file": "",
@@ -281,7 +283,9 @@
         "header_value": false,
         "new_headers": [],
         "match_replace": [],
-        "encoder": [],
+        "encoder": [
+          "URL-encode key characters"
+        ],
         "url_encode": false,
         "chars_to_url_encode": "",
         "greps_file": "",
@@ -419,7 +423,6 @@
           "param_xml",
           "param_xml_attr",
           "url_path_filename",
-          "param_name_multi_part_attr",
           "referer",
           "origin",
           "entire_body_xml",
@@ -429,15 +432,17 @@
         "header_value": false,
         "new_headers": [],
         "match_replace": [],
-        "encoder": [],
+        "encoder": [
+          "URL-encode key characters"
+        ],
         "url_encode": false,
         "chars_to_url_encode": "",
         "greps_file": "",
         "grep": [
           "true,,Time Delay,,20"
         ],
-        "redir_type": "always",
-        "max_redir": 3,
+        "redir_type": "never",
+        "max_redir": 0,
         "show_alert": "always",
         "issue_name": "SQLi_Timebased",
         "issue_severity": "High",

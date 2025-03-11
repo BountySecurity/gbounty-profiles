@@ -28,9 +28,7 @@
           "param_url",
           "param_xml",
           "param_xml_attr",
-          "url_path_filename",
-          "entire_body_xml",
-          "entire_body_multipart"
+          "url_path_filename"
         ],
         "header_value": false,
         "new_headers": [],
@@ -48,7 +46,7 @@
         ],
         "redir_type": "always",
         "max_redir": 5,
-        "show_alert": "always",
+        "show_alert": "none",
         "issue_name": "XSS_HtmlUrlEncode_Step1",
         "issue_severity": "Information",
         "issue_confidence": "Firm",
@@ -92,11 +90,7 @@
           "param_url",
           "param_xml",
           "param_xml_attr",
-          "url_path_filename",
-          "param_name_multi_part_attr",
-          "entire_body_xml",
-          "entire_body_json",
-          "entire_body_multipart"
+          "url_path_filename"
         ],
         "header_value": false,
         "new_headers": [],
@@ -134,7 +128,8 @@
       }
     ],
     "Tags": [
-      "All"
+      "All",
+      "XSS"
     ]
   }
 ]

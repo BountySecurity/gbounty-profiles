@@ -28,10 +28,7 @@
           "param_url",
           "param_xml",
           "param_xml_attr",
-          "url_path_filename",
-          "entire_body_xml",
-          "entire_body_json",
-          "entire_body_multipart"
+          "url_path_filename"
         ],
         "header_value": false,
         "new_headers": [],
@@ -48,7 +45,7 @@
         ],
         "redir_type": "on_site",
         "max_redir": 5,
-        "show_alert": "always",
+        "show_alert": "none",
         "issue_name": "Replected Value URL Encode",
         "issue_severity": "Information",
         "issue_confidence": "Firm",
@@ -91,10 +88,7 @@
           "param_url",
           "param_xml",
           "param_xml_attr",
-          "url_path_filename",
-          "entire_body_xml",
-          "entire_body_json",
-          "entire_body_multipart"
+          "url_path_filename"
         ],
         "header_value": false,
         "new_headers": [],

@@ -11,7 +11,7 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,%0D%0ASet-Cookie:%20mycookie\u003dmyvalue"
+          "true,%0D%0ASet-Cookie:%20mycookie=myvalue"
         ],
         "payloads_file": "",
         "payload_position": "append",
@@ -20,14 +20,14 @@
         "insertion_points": [
           "entire_body",
           "param_body",
+          "param_cookie",
           "param_json",
-          "url_path_folder",
           "param_multipart_attr",
           "user_provided",
           "param_url",
           "param_xml",
           "param_xml_attr",
-          "url_path_filename",
+          "param_name_multi_part_attr",
           "entire_body_xml",
           "entire_body_json",
           "entire_body_multipart"
@@ -40,10 +40,10 @@
         "chars_to_url_encode": "",
         "greps_file": "",
         "grep": [
-          "true,,Regex,Only in Headers,Set-Cookie:\\smycookie\u003dmyvalue"
+          "true,,Regex,Only in Headers,Set-Cookie:\\smycookie=myvalue"
         ],
         "redir_type": "always",
-        "max_redir": 3,
+        "max_redir": 2,
         "show_alert": "always",
         "issue_name": "CRLF Injection",
         "issue_severity": "Medium",
@@ -55,7 +55,8 @@
       }
     ],
     "Tags": [
-      "All"
+      "All",
+      "CRLF Injection"
     ]
   }
 ]

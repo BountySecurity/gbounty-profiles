@@ -1,0 +1,61 @@
+[
+  {
+    "profile_name": "GraphQL_Introspection",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"query IntrospectionQuery {\\n  __schema {\\n    queryType {\\n      name\\n    }\\n    mutationType {\\n      name\\n    }\\n    subscriptionType {\\n      name\\n    }\\n    types {\\n      ...FullType\\n    }\\n    directives {\\n      name\\n      description\\n      locations\\n      args {\\n        ...InputValue\\n      }\\n    }\\n  }\\n}\\n\\nfragment FullType on __Type {\\n  kind\\n  name\\n  description\\n  fields(includeDeprecated: true) {\\n    name\\n    description\\n    args {\\n      ...InputValue\\n    }\\n    type {\\n      ...TypeRef\\n    }\\n    isDeprecated\\n    deprecationReason\\n  }\\n  inputFields {\\n    ...InputValue\\n  }\\n  interfaces {\\n    ...TypeRef\\n  }\\n  enumValues(includeDeprecated: true) {\\n    name\\n    description\\n    isDeprecated\\n    deprecationReason\\n  }\\n  possibleTypes {\\n    ...TypeRef\\n  }\\n}\\n\\nfragment InputValue on __InputValue {\\n  name\\n  description\\n  type {\\n    ...TypeRef\\n  }\\n  defaultValue\\n}\\n\\nfragment TypeRef on __Type {\\n  kind\\n  name\\n  ofType {\\n    kind\\n    name\\n    ofType {\\n      kind\\n      name\\n      ofType {\\n        kind\\n        name\\n        ofType {\\n          kind\\n          name\\n          ofType {\\n            kind\\n            name\\n            ofType {\\n              kind\\n              name\\n              ofType {\\n                kind\\n                name\\n              }\\n            }\\n          }\\n        }\\n      }\\n    }\\n  }\\n}\"}",
+          "true,{\"query\":\"query introspection{__schema{types{name}}}\"}",
+          "true,{\"query\":\"{__schema{types{name}}}\"}",
+          "true,{\"query\":\"{__type(name:\\\"User\\\"){name,fields{name}}}\"}",
+          "true,{\"query\":\"{__schema{queryType{name}}}\"}",
+          "true,{\"query\":\"{__schema{mutationType{name}}}\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,\"__schema\":\\s*\\{",
+          "true,OR,Regex,,\"types\":\\s*\\[[^\\]]*\\{[^}]*\"name\"",
+          "true,OR,Regex,,\"queryType\":\\s*\\{[^}]*\"name\"",
+          "true,OR,Regex,,\"__type\":\\s*\\{[^}]*\"name\"",
+          "true,AND,Content Type,,application/json"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "GraphQL Introspection Enabled",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "The GraphQL endpoint has introspection enabled, which allows clients to query information about the schema. While useful during development, this can expose sensitive information about the API structure in production environments, potentially aiding attackers in crafting more targeted queries or mutations.",
+        "remediation_detail": "Disable introspection in production environments by implementing a custom validation rule that rejects introspection queries. If introspection is required, consider implementing proper authentication and authorization to limit access to trusted clients only.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "GraphQL",
+      "Information Disclosure",
+      "All"
+    ]
+  }
+]

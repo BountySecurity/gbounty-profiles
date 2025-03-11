@@ -1,0 +1,62 @@
+[
+  {
+    "profile_name": "GraphQL_Sensitive_Data_Exposure",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"{\\n  users {\\n    id\\n    username\\n    email\\n    password\\n    token\\n    resetToken\\n    mfa_secret\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  user(id: 1) {\\n    id\\n    username\\n    email\\n    password\\n    token\\n    resetToken\\n    role\\n    permissions\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  me {\\n    id\\n    username\\n    email\\n    password\\n    token\\n    apiKey\\n    secret\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  userByEmail(email: \\\"admin@example.com\\\") {\\n    id\\n    username\\n    email\\n    password\\n    role\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  allUsers {\\n    edges {\\n      node {\\n        id\\n        username\\n        email\\n        password\\n        role\\n      }\\n    }\\n  }\\n}\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,\"password\"\\s*:\\s*\"[^\"]+\"",
+          "true,OR,Regex,,\"token\"\\s*:\\s*\"[^\"]+\"",
+          "true,OR,Regex,,\"resetToken\"\\s*:\\s*\"[^\"]+\"",
+          "true,OR,Regex,,\"apiKey\"\\s*:\\s*\"[^\"]+\"",
+          "true,OR,Regex,,\"secret\"\\s*:\\s*\"[^\"]+\"",
+          "true,OR,Regex,,\"mfa_secret\"\\s*:\\s*\"[^\"]+\"",
+          "true,AND,Content Type,,application/json"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "GraphQL Sensitive Data Exposure",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "The GraphQL endpoint exposes sensitive data such as passwords, tokens, or secret keys through its queries. This represents a serious security risk as it could lead to account takeover or system compromise.",
+        "remediation_detail": "Implement proper field-level authorization in your GraphQL schema. Use a field middleware or similar mechanism to check if the current user has permission to access sensitive fields before resolving them. Consider using a library like graphql-shield to manage permissions declaratively.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "GraphQL",
+      "Information Disclosure",
+      "All"
+    ]
+  }
+]

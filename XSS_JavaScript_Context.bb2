@@ -1,0 +1,118 @@
+[
+  {
+    "profile_name": "XSS_JavaScript_Context",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,js_context_test"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_body",
+          "user_provided",
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,<script[^>]*>([^<]*?js_context_test[^<]*?)</script>",
+          "true,AND,Content Type,,text/html",
+          "true,AND NOT,Simple String,,cloudflare"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "none",
+        "issue_name": "JavaScript_Context_Detection",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "Input is reflected within a JavaScript context.",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      },
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,xss_prefix_x';alert(1);//",
+          "true,xss_prefix_x\\';alert(1);//",
+          "true,xss_prefix_x\";alert(1);//",
+          "true,xss_prefix_x\\\";alert(1);//",
+          "true,xss_prefix_x';prompt(1);//",
+          "true,xss_prefix_x\\';prompt(1);//",
+          "true,xss_prefix_x\";prompt(1);//",
+          "true,xss_prefix_x\\\";prompt(1);//",
+          "true,xss_prefix_x';print(1);//",
+          "true,xss_prefix_x\\';print(1);//",
+          "true,xss_prefix_x\";print(1);//",
+          "true,xss_prefix_x\\\";print(1);//"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,<script[^>]*>([^<]*?xss_prefix_x':alert\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\';alert\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\\\\\\\\';alert\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\";alert\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\";alert\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\\\\\\\\\";alert\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x';prompt\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\';prompt\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\\\\\\\\';prompt\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\";prompt\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\";prompt\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\\\\\\\\\";prompt\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x';print\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\';print\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\\\\\\\\';print\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\";print\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\";print\\(1\\);[^<]*?)</script>",
+          "true,OR,Regex,,<script[^>]*>([^<]*?xss_prefix_x\\\\\\\\\\\\\\\\\";print\\(1\\);[^<]*?)</script>",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "always",
+        "issue_name": "XSS_JavaScript_Context",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "A Cross-Site Scripting vulnerability has been detected in JavaScript context. The application does not properly sanitize user input that is embedded within script strings, allowing arbitrary JavaScript execution.",
+        "remediation_detail": "Implement proper JavaScript encoding for user input that is embedded in JavaScript. Consider using a dedicated JavaScript encoding library or function. Never construct JavaScript code with user input without proper sanitization.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "XSS",
+      "JavaScript_Context",
+      "All"
+    ]
+  }
+]

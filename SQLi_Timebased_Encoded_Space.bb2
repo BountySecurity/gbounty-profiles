@@ -1,6 +1,6 @@
 [
   {
-    "profile_name": "SQLi_Timebased",
+    "profile_name": "SQLi_Timebased_Encoded_Space",
     "enabled": true,
     "scanner": "active",
     "author": "@bountysecurity",
@@ -133,7 +133,14 @@
         ],
         "header_value": false,
         "new_headers": [],
-        "match_replace": [],
+        "match_replace": [
+          {
+            "type": "Payload",
+            "match": " ",
+            "replace": "%20",
+            "regex": "String"
+          }
+        ],
         "encoder": [],
         "url_encode": false,
         "chars_to_url_encode": "",
@@ -280,7 +287,14 @@
         ],
         "header_value": false,
         "new_headers": [],
-        "match_replace": [],
+        "match_replace": [
+          {
+            "type": "Payload",
+            "match": " ",
+            "replace": "%20",
+            "regex": "String"
+          }
+        ],
         "encoder": [],
         "url_encode": false,
         "chars_to_url_encode": "",
@@ -419,7 +433,6 @@
           "param_xml",
           "param_xml_attr",
           "url_path_filename",
-          "param_name_multi_part_attr",
           "referer",
           "origin",
           "entire_body_xml",
@@ -428,7 +441,14 @@
         ],
         "header_value": false,
         "new_headers": [],
-        "match_replace": [],
+        "match_replace": [
+          {
+            "type": "Payload",
+            "match": " ",
+            "replace": "%20",
+            "regex": "String"
+          }
+        ],
         "encoder": [],
         "url_encode": false,
         "chars_to_url_encode": "",
@@ -436,8 +456,8 @@
         "grep": [
           "true,,Time Delay,,20"
         ],
-        "redir_type": "always",
-        "max_redir": 3,
+        "redir_type": "never",
+        "max_redir": 0,
         "show_alert": "always",
         "issue_name": "SQLi_Timebased",
         "issue_severity": "High",

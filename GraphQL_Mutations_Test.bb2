@@ -1,0 +1,61 @@
+[
+  {
+    "profile_name": "GraphQL_Mutations_Test",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"mutation {\\n  login(username: \\\"admin\\\", password: \\\"admin\\\") {\\n    token\\n  }\\n}\"}",
+          "true,{\"query\":\"mutation {\\n  createUser(input: {username: \\\"testuser\\\", email: \\\"test@example.com\\\", password: \\\"password123\\\"}) {\\n    id\\n    username\\n  }\\n}\"}",
+          "true,{\"query\":\"mutation {\\n  updateUser(id: 1, input: {role: \\\"admin\\\"}) {\\n    id\\n    role\\n  }\\n}\"}",
+          "true,{\"query\":\"mutation {\\n  deleteUser(id: 2) {\\n    success\\n  }\\n}\"}",
+          "true,{\"query\":\"mutation {\\n  resetPassword(email: \\\"admin@example.com\\\") {\\n    success\\n  }\\n}\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,\"data\":\\s*\\{[^}]+\":.*\\}",
+          "true,OR,Regex,,\"token\"\\s*:",
+          "true,OR,Regex,,\"success\"\\s*:",
+          "true,OR,Regex,,\"id\"\\s*:",
+          "true,OR,Regex,,\"username\"\\s*:",
+          "true,OR,Regex,,\"role\"\\s*:",
+          "true,AND,Content Type,,application/json"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "GraphQL Unprotected Mutations",
+        "issue_severity": "High",
+        "issue_confidence": "Firm",
+        "issue_detail": "The GraphQL endpoint allows mutations to be executed without proper authentication or authorization. This could allow unauthorized users to create, modify, or delete data in the system.",
+        "remediation_detail": "Implement proper authentication and authorization checks for all mutation resolvers. Consider using a framework like graphql-shield to manage permissions consistently. Ensure that input validation is performed on all mutation arguments.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "GraphQL",
+      "All"
+    ]
+  }
+]

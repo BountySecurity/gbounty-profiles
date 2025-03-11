@@ -1,6 +1,6 @@
 [
   {
-    "profile_name": "GraphQL Batching",
+    "profile_name": "GraphQL_Batching",
     "enabled": true,
     "scanner": "active",
     "author": "@bountysecurity",
@@ -11,7 +11,7 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,[{\"query\":\"query{__typename}\"},{\"query\":\"query{__typename}\"},{\"query\":\"query{__typename}\"}]"
+          "true,[{\"query\":\"{__typename}\"},{\"query\":\"{__typename}\"},{\"query\":\"{__typename}\"}]"
         ],
         "payloads_file": "",
         "payload_position": "replace",
@@ -29,23 +29,24 @@
         "chars_to_url_encode": "",
         "greps_file": "",
         "grep": [
-          "true,,Simple String,,\"__typename\":\"Query\"}},",
+          "true,,Regex,,\\[\\{\"data\":\\{\"__typename\":[^}]+\\}\\},\\{\"data\":",
           "true,AND,Content Type,,application/json"
         ],
         "redir_type": "always",
         "max_redir": 5,
         "show_alert": "always",
-        "issue_name": "GraphQL Batching",
+        "issue_name": "GraphQL Batching Enabled",
         "issue_severity": "Medium",
         "issue_confidence": "Certain",
-        "issue_detail": "Some payloads are based on the examples from this excellent Imperva post: https://www.imperva.com/blog/graphql-vulnerabilities-common-attacks/",
-        "remediation_detail": "",
+        "issue_detail": "The GraphQL endpoint allows query batching, which enables multiple operations to be sent and processed in a single request. This could be exploited for rate limit bypassing, amplification attacks, or to hide malicious queries among legitimate ones.",
+        "remediation_detail": "Disable query batching if it's not necessary for your application. If batching is required, implement per-operation rate limiting and ensure that authentication and authorization are properly checked for each operation in the batch.",
         "issue_background": "",
         "remediation_background": ""
       }
     ],
     "Tags": [
       "GraphQL",
+      "DoS",
       "All"
     ]
   }

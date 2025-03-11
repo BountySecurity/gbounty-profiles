@@ -11,7 +11,13 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,https://bountysecurity.ai"
+          "true,https://bountysecurity.ai",
+          "true,{CURRENT_HOST}.bountysecurity.ai",
+          "true,https://bountysecurity.ai\\\\@{CURRENT_HOST}/",
+          "true,https://bountysecurity.ai/{CURRENT_HOST}/",
+          "true,https://bountysecurity.ai/.{CURRENT_HOST}/",
+          "true,bountysecurity.{CURRENT_HOST}",
+          "true,{CURRENT_HOST} https://bountysecurity.ai"
         ],
         "payloads_file": "",
         "payload_position": "replace",
@@ -19,12 +25,10 @@
         "change_http_request_type": "post_to_get",
         "insertion_points": [
           "user_provided",
-          "new_headers"
+          "origin"
         ],
-        "header_value": true,
-        "new_headers": [
-          "Origin"
-        ],
+        "header_value": false,
+        "new_headers": [],
         "match_replace": [],
         "encoder": [],
         "url_encode": false,
@@ -32,16 +36,17 @@
         "greps_file": "",
         "grep": [
           "true,,Simple String,,Access-Control-Allow-Credential: true",
-          "true,OR,Simple String,,Access-Control-Allow-Origin: https://bountysecurity.ai",
-          "true,OR,Simple String,,Access-Control-Allow-Origin: null"
+          "true,OR,Regex,,Access-Control-Allow-Origin: .*bountysecurity.*",
+          "true,OR,Simple String,,Access-Control-Allow-Origin: null",
+          "true,OR,Simple String,,Access-Control-Allow-Origin: *"
         ],
         "redir_type": "always",
-        "max_redir": 5,
+        "max_redir": 3,
         "show_alert": "always",
         "issue_name": "CORS Misconfiguration",
-        "issue_severity": "Information",
+        "issue_severity": "Low",
         "issue_confidence": "Firm",
-        "issue_detail": "",
+        "issue_detail": "https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/CORS%20Misconfiguration\n\n\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
         "remediation_detail": "",
         "issue_background": "",
         "remediation_background": ""

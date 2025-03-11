@@ -1,6 +1,6 @@
 [
   {
-    "profile_name": "GraphQL Alias Overloading",
+    "profile_name": "GraphQL_Alias_DoS",
     "enabled": true,
     "scanner": "active",
     "author": "@bountysecurity",
@@ -11,7 +11,7 @@
         "insertion_point": "same",
         "raw_request": "",
         "payloads": [
-          "true,{\"query\":\"query{ alias1:__typename \\nalias2:__typename \\nalias3:__typename \\nalias4:__typename\\n }\"}"
+          "true,{\"query\":\"query{ alias1:__typename \\nalias2:__typename \\nalias3:__typename \\nalias4:__typename\\n alias5:__typename \\nalias6:__typename \\nalias7:__typename \\nalias8:__typename\\n alias9:__typename \\nalias10:__typename\\n }\"}"
         ],
         "payloads_file": "",
         "payload_position": "replace",
@@ -29,26 +29,26 @@
         "chars_to_url_encode": "",
         "greps_file": "",
         "grep": [
-          "true,,Simple String,,alias1",
-          "true,AND,Simple String,,alias2",
-          "true,AND,Simple String,,alias3",
+          "true,,Regex,,\"alias1\"\\s*:",
+          "true,AND,Regex,,\"alias10\"\\s*:",
           "true,AND,Content Type,,application/json"
         ],
-        "redir_type": "on_site",
-        "max_redir": 4,
+        "redir_type": "always",
+        "max_redir": 5,
         "show_alert": "always",
         "issue_name": "GraphQL Alias Overloading",
         "issue_severity": "Medium",
         "issue_confidence": "Certain",
-        "issue_detail": "",
-        "remediation_detail": "",
+        "issue_detail": "The GraphQL endpoint allows extensive use of field aliases without restrictions. This could be exploited for denial of service attacks by crafting queries with thousands of aliases to exhaust server resources.",
+        "remediation_detail": "Implement query complexity analysis and limits to prevent resource exhaustion. Consider using tools like graphql-query-complexity to assign complexity values to fields and reject queries that exceed a defined threshold.",
         "issue_background": "",
         "remediation_background": ""
       }
     ],
     "Tags": [
-      "All",
-      "GraphQL"
+      "GraphQL",
+      "DoS",
+      "All"
     ]
   }
 ]

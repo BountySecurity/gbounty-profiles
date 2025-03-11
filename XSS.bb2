@@ -18,19 +18,9 @@
         "change_http_request": false,
         "change_http_request_type": "post_to_get",
         "insertion_points": [
-          "extension_provice",
-          "entire_body",
           "param_body",
-          "param_json",
-          "url_path_folder",
-          "param_multipart_attr",
           "user_provided",
-          "param_url",
-          "param_xml",
-          "param_xml_attr",
-          "url_path_filename",
-          "entire_body_xml",
-          "entire_body_multipart"
+          "param_url"
         ],
         "header_value": false,
         "new_headers": [],
@@ -45,7 +35,7 @@
         ],
         "redir_type": "on_site",
         "max_redir": 5,
-        "show_alert": "always",
+        "show_alert": "none",
         "issue_name": "Reflected Value",
         "issue_severity": "Information",
         "issue_confidence": "Firm",
@@ -96,9 +86,7 @@
           "param_xml",
           "param_xml_attr",
           "url_path_filename",
-          "entire_body_xml",
-          "entire_body_json",
-          "entire_body_multipart"
+          "entire_body_json"
         ],
         "header_value": false,
         "new_headers": [],
@@ -143,7 +131,8 @@
     ],
     "Tags": [
       "All",
-      "XSS"
+      "XSS",
+      "BugBounty"
     ]
   }
 ]

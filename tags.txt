@@ -1,10 +1,19 @@
 All
 Blind XSS
 Blind XXE
+BugBounty
 CORS
+CRLF Injection
 CVEs
-Fuzzing Files
+DOM_Context
+DoS
 GraphQL
+HTML_Attribute
+HTML_Comment
+HTML_Tag
+Information Disclosure
+Injection
+JavaScript_Context
 Open Redirect
 Path_Traversal
 RCE
@@ -15,6 +24,7 @@ SQLi_StatusCode
 SQLi_TimeBased
 SSRF
 SSTI
+URL_Context
 WordPress
 X-Headers-BlindHost
 XSS
